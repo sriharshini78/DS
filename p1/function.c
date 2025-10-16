@@ -2,9 +2,9 @@
 void insert_beg(int ele);
 void insert_end(int ele);
 void insert_pos(int ele);
-void delete_beg(int ele);
-void delete_end(int ele);
-void delete_pos(int ele);
+void delete_beg();
+void delete_end();
+void delete_pos();
 void display();
 int a[10];
 int count=-1;
@@ -61,7 +61,7 @@ if(count==-1){
 a[0]=ele;
 }
 else{
-for(int i=count;i<=pos;i++)
+for(int i=count;i>=pos;i--)
 {
 a[i+1]=a[i];
 }
@@ -76,5 +76,25 @@ for(int i=0;i<count;i++)
 a[i]=a[i+1];
 }
 count--;
+
 }
+void delete_end() {
+    if(count == -1) {
+        printf("Array is empty!\n");
+        return;
+    }
+    count--;
+}
+
+void delete_pos() {
+    int pos;
+    printf("Enter position to delete (0 to %d): ", count);
+    scanf("%d", &pos);
+    if(pos < 0 || pos > count) {
+        printf("Invalid position!\n");
+        return;
+    }
+    for(int i = pos; i < count; i++)
+        a[i] = a[i+1];
+    count--;
 }
