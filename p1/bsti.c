@@ -1,4 +1,4 @@
-0#include<stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 struct node*insertion(struct node*root, int val);
 struct node*inorder(struct node*root);
